@@ -14,7 +14,8 @@ const CGEventFlags SwitchKey = kCGEventFlagMaskCommand;
 CGRect DisplayRect;
 CGDirectDisplayID DisplayID = kCGNullDirectDisplay;
 
-CGEventRef EventCallback(CGEventTapProxy proxy,
+CGEventRef EventCallback(
+    CGEventTapProxy proxy,
     CGEventType type,
     CGEventRef event,
     void* userInfo)
@@ -54,7 +55,8 @@ CGEventRef EventCallback(CGEventTapProxy proxy,
 
 int main()
 {
-    CFMachPortRef EventTap = CGEventTapCreate(kCGSessionEventTap,
+    CFMachPortRef EventTap = CGEventTapCreate(
+        kCGSessionEventTap,
         kCGHeadInsertEventTap,
         kCGEventTapOptionListenOnly,
         CGEventMaskBit(kCGEventMouseMoved) | CGEventMaskBit(kCGEventLeftMouseDragged) | CGEventMaskBit(kCGEventRightMouseDragged),
